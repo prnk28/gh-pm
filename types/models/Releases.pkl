@@ -1,0 +1,19 @@
+///
+///
+/// This module was generated from JSON Schema from
+/// <file:///Users/prad/Developer/github.com/prnk28/gh-pm/types/schemas/releases.json>.
+///
+/// WARN: The root schema's type is `"array"`, and cannot be correctly mapped to a Pkl module.
+module Releases
+
+class Item {
+  isDraft: Boolean
+
+  isLatest: Boolean
+
+  name: String(!isEmpty)
+
+  publishedAt: String(!isEmpty)
+
+  tagName: String(!isEmpty)
+}

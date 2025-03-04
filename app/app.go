@@ -21,13 +21,10 @@ func RootCmd() *cobra.Command {
 
 func DepStatus() map[string]bool {
 	installStatus := map[string]bool{
-		"gh":   hasCmdInstalled("gh"),
-		"git":  hasCmdInstalled("git"),
-		"hub":  hasCmdInstalled("fzf"),
-		"jq":   hasCmdInstalled("jq"),
-		"sed":  hasCmdInstalled("sed"),
-		"curl": hasCmdInstalled("curl"),
-		"gum":  hasCmdInstalled("gum"),
+		"gh":  hasCmdInstalled("gh"),
+		"fzf": hasCmdInstalled("fzf"),
+		"jq":  hasCmdInstalled("jq"),
+		"gum": hasCmdInstalled("gum"),
 	}
 	return installStatus
 }

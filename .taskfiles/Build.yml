@@ -4,4 +4,18 @@ tasks:
   build:
     cmds:
       - go build -o gh-pm main.go
+      - echo "✓ Build completed"
+      - task: extension:remove
+      - task: extension:install
+    silent: true
+
+  extension:remove:
+    cmds:
+      - gh extension remove gh-pm
+    silent: true
+
+  extension:install:
+    cmds:
+      - gh extension install . --force
+      - echo "✓ Extension installed"
     silent: true

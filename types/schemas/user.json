@@ -33,7 +33,15 @@
       "type": "string",
       "minLength": 1
     },
+    "following_url": {
+      "type": "string",
+      "minLength": 1
+    },
     "gists_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "starred_url": {
       "type": "string",
       "minLength": 1
     },
@@ -46,6 +54,10 @@
       "minLength": 1
     },
     "repos_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "events_url": {
       "type": "string",
       "minLength": 1
     },
@@ -169,10 +181,13 @@
     "url",
     "html_url",
     "followers_url",
+    "following_url",
     "gists_url",
+    "starred_url",
     "subscriptions_url",
     "organizations_url",
     "repos_url",
+    "events_url",
     "received_events_url",
     "type",
     "user_view_type",

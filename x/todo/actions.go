@@ -1,4 +1,4 @@
-package task
+package todo
 
 import (
 	"github.com/spf13/cobra"

@@ -23,13 +23,19 @@ html_url: String(!isEmpty)
 
 followers_url: String(!isEmpty)
 
+following_url: String(!isEmpty)
+
 gists_url: String(!isEmpty)
+
+starred_url: String(!isEmpty)
 
 subscriptions_url: String(!isEmpty)
 
 organizations_url: String(!isEmpty)
 
 repos_url: String(!isEmpty)
+
+events_url: String(!isEmpty)
 
 received_events_url: String(!isEmpty)
 

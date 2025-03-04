@@ -9,7 +9,7 @@ import (
 	"github.com/prnk28/gh-pm/x/milestone"
 	"github.com/prnk28/gh-pm/x/project"
 	"github.com/prnk28/gh-pm/x/review"
-	"github.com/prnk28/gh-pm/x/task"
+	"github.com/prnk28/gh-pm/x/todo"
 	"github.com/prnk28/gh-pm/x/whoami"
 
 	"github.com/prnk28/gh-pm/app"
@@ -22,7 +22,7 @@ var commands = []*cobra.Command{
 	milestone.Command(),
 	project.Command(),
 	review.Command(),
-	task.Command(),
+	todo.Command(),
 	whoami.Command(),
 }
 
