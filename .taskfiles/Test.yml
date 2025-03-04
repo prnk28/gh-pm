@@ -1,0 +1,12 @@
+version: '3'
+
+vars:
+  PKL_PKG_NAME: package://pkg.pkl-lang.org/pkl-pantry/org.json_schema.contrib
+  PKL_PKG_VERSION: 1.1.3
+  PKL_PKG: "{{.PKL_PKG_NAME}}@{{.PKL_PKG_VERSION}}#"
+
+tasks:
+  test:
+    cmds:
+      - go test -v ./...
+    silent: true

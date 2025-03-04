@@ -2,16 +2,35 @@ package main
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/cli/go-gh"
+	"github.com/prnk28/gh-pm/x/deployment"
+	"github.com/prnk28/gh-pm/x/launch"
+	"github.com/prnk28/gh-pm/x/milestone"
+	"github.com/prnk28/gh-pm/x/project"
+	"github.com/prnk28/gh-pm/x/review"
+	"github.com/prnk28/gh-pm/x/task"
+	"github.com/prnk28/gh-pm/x/whoami"
+
+	"github.com/prnk28/gh-pm/app"
+	"github.com/spf13/cobra"
 )
 
+var commands = []*cobra.Command{
+	deployment.Command(),
+	launch.Command(),
+	milestone.Command(),
+	project.Command(),
+	review.Command(),
+	task.Command(),
+	whoami.Command(),
+}
+
 func main() {
-	args := []string{"api", "user", "--jq", `"You are @\(.login) (\(.name))"`}
-	stdout, _, err := gh.Exec(args...)
-	if err != nil {
+	rootCmd := app.RootCmd()
+	rootCmd.AddCommand(commands...)
+	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
-	fmt.Println(stdout.String())
 }

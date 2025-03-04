@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "closed",
+          "id",
+          "number",
+          "public",
+          "readme",
+          "shortDescription",
+          "title",
+          "url"
+        ],
+        "properties": {
+          "closed": {
+            "type": "boolean"
+          },
+          "fields": {
+            "type": "object",
+            "properties": {
+              "totalCount": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "totalCount"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "items": {
+            "type": "object",
+            "properties": {
+              "totalCount": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "totalCount"
+            ]
+          },
+          "number": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "login": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "login",
+              "type"
+            ]
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "readme": {
+            "type": "string"
+          },
+          "shortDescription": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "totalCount": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "projects",
+    "totalCount"
+  ]
+}

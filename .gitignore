@@ -1,1 +1,6 @@
 gh-pm
+.DS_Store
+models/schemas
+models/tmp
+models/*.json
+types/base/*.json

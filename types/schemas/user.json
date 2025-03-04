@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "login": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "number"
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "avatar_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gravatar_id": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "html_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "followers_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gists_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subscriptions_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "organizations_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repos_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "received_events_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_view_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "site_admin": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "company": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blog": {
+      "type": "string",
+      "minLength": 1
+    },
+    "location": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hireable": {},
+    "bio": {
+      "type": "string",
+      "minLength": 1
+    },
+    "twitter_username": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notification_email": {
+      "type": "string",
+      "minLength": 1
+    },
+    "public_repos": {
+      "type": "number"
+    },
+    "public_gists": {
+      "type": "number"
+    },
+    "followers": {
+      "type": "number"
+    },
+    "following": {
+      "type": "number"
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updated_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "private_gists": {
+      "type": "number"
+    },
+    "total_private_repos": {
+      "type": "number"
+    },
+    "owned_private_repos": {
+      "type": "number"
+    },
+    "disk_usage": {
+      "type": "number"
+    },
+    "collaborators": {
+      "type": "number"
+    },
+    "two_factor_authentication": {
+      "type": "boolean"
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "space": {
+          "type": "number"
+        },
+        "collaborators": {
+          "type": "number"
+        },
+        "private_repos": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "space",
+        "collaborators",
+        "private_repos"
+      ]
+    }
+  },
+  "required": [
+    "login",
+    "id",
+    "node_id",
+    "avatar_url",
+    "gravatar_id",
+    "url",
+    "html_url",
+    "followers_url",
+    "gists_url",
+    "subscriptions_url",
+    "organizations_url",
+    "repos_url",
+    "received_events_url",
+    "type",
+    "user_view_type",
+    "site_admin",
+    "name",
+    "company",
+    "blog",
+    "location",
+    "email",
+    "bio",
+    "twitter_username",
+    "notification_email",
+    "public_repos",
+    "public_gists",
+    "followers",
+    "following",
+    "created_at",
+    "updated_at",
+    "private_gists",
+    "total_private_repos",
+    "owned_private_repos",
+    "disk_usage",
+    "collaborators",
+    "two_factor_authentication",
+    "plan"
+  ]
+}

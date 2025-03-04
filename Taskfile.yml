@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  build: 
+    taskfile: .taskfiles/Build.yml
+    flatten: true
+    dir: .
+  generate:
+    taskfile: .taskfiles/Generate.yml
+    flatten: true
+    dir: .
+  test: 
+    taskfile: .taskfiles/Test.yml
+    flatten: true
+    dir: .
+
+tasks:
+  default:
+    cmds:
+      - task -l
+    silent: true

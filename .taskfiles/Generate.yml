@@ -1,0 +1,42 @@
+version: '3'
+
+vars:
+  PROXY: package://pkg.pkl-lang.org/pkl-pantry
+
+tasks:
+  json-to-pkl:
+    vars:
+      FILE: projects.json
+    cmds:
+      - task: json-schema
+        vars:
+          INPUT: "{{.FILE}}"
+      - task: pkl-eval
+        vars:
+          NAME: org.json_schema.contrib
+          VERSION: 1.1.3
+          INPUT: "{{.FILE}}"
+
+  pkl-eval:
+    requires: 
+      vars: [NAME, VERSION, INPUT]
+    vars:
+      PKG: "{{.PROXY}}/{{.NAME}}@{{.VERSION}}#"
+      EVAL: "{{.PKG}}/generate.pkl -m ."
+      FILE:
+        sh: basename {{.INPUT}}
+      OUTPUT: types/models
+    cmds:
+      - pkl eval {{.EVAL}} -p source=types/schemas/{{.INPUT}}
+      - mkdir -p {{.OUTPUT}}
+      - mv *.pkl {{.OUTPUT}}
+
+  json-schema:
+    requires: 
+      vars: [INPUT]
+    vars:
+      FILE:
+        sh: basename {{.INPUT}}
+      OUTPUT: "{{.FILE}}"
+    cmds:
+      - json-schema-generator -f types/base/{{.INPUT}} -o types/schemas/{{.OUTPUT}}

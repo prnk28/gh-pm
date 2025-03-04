@@ -1,0 +1,94 @@
+///
+///
+/// This module was generated from JSON Schema from
+/// <file:///Users/prad/Developer/github.com/prnk28/gh-pm/types/schemas/user.json>.
+///
+/// WARN: The root schema describes open-ended properties, but this is not possible to describe at the
+/// module level.
+module User
+
+login: String(!isEmpty)
+
+id: Number
+
+node_id: String(!isEmpty)
+
+avatar_url: String(!isEmpty)
+
+gravatar_id: String
+
+url: String(!isEmpty)
+
+html_url: String(!isEmpty)
+
+followers_url: String(!isEmpty)
+
+gists_url: String(!isEmpty)
+
+subscriptions_url: String(!isEmpty)
+
+organizations_url: String(!isEmpty)
+
+repos_url: String(!isEmpty)
+
+received_events_url: String(!isEmpty)
+
+type: String(!isEmpty)
+
+user_view_type: String(!isEmpty)
+
+site_admin: Boolean
+
+name: String(!isEmpty)
+
+company: String(!isEmpty)
+
+blog: String(!isEmpty)
+
+location: String(!isEmpty)
+
+email: String(!isEmpty)
+
+hireable: Any?
+
+bio: String(!isEmpty)
+
+twitter_username: String(!isEmpty)
+
+notification_email: String(!isEmpty)
+
+public_repos: Number
+
+public_gists: Number
+
+followers: Number
+
+following: Number
+
+created_at: String(!isEmpty)
+
+updated_at: String(!isEmpty)
+
+private_gists: Number
+
+total_private_repos: Number
+
+owned_private_repos: Number
+
+disk_usage: Number
+
+collaborators: Number
+
+two_factor_authentication: Boolean
+
+plan: Plan
+
+class Plan {
+  name: String(!isEmpty)
+
+  space: Number
+
+  collaborators: Number
+
+  private_repos: Number
+}
