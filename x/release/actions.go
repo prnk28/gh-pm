@@ -1,4 +1,4 @@
-package review
+package release
 
 import (
 	"github.com/spf13/cobra"
@@ -7,22 +7,22 @@ import (
 var subCommands = []*cobra.Command{
 	{
 		Use:   "create",
-		Short: "Create a PR",
+		Short: "Create a release",
 		Run:   createAction,
 	},
 	{
 		Use:   "view",
-		Short: "View a PR",
+		Short: "View a release",
 		Run:   viewAction,
 	},
 	{
 		Use:   "delete",
-		Short: "Delete a PR",
+		Short: "Delete a release",
 		Run:   deleteAction,
 	},
 	{
 		Use:   "remove",
-		Short: "Remove a PR",
+		Short: "Remove a release",
 		Run:   removeAction,
 	},
 }

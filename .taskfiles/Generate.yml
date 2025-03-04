@@ -10,9 +10,11 @@ tasks:
   generate:
     aliases: [g]
     cmds:
-      - defer: rm -rf types/base
+      - npm install -g json-schema-generator
+      - defer: rm -rf types
       - task: mock-data
       - task: jsonpkl-issues.json
+      - task: jsonpkl-milestones.json
       - task: jsonpkl-prs.json
       - task: jsonpkl-projects.json
       - task: jsonpkl-releases.json
@@ -27,16 +29,14 @@ tasks:
 
   pkljson-*:
     vars:
-
       EVAL: "{{.PKG}}/generate.pkl -m ."
       INPUT: '{{index .MATCH 0}}'
       FILE:
         sh: basename {{.INPUT}}
-      OUTPUT: types/models
     cmds:
+      - mkdir -p types/schemas
       - pkl eval {{.EVAL}} -p source=types/schemas/{{.INPUT}}
-      - mkdir -p {{.OUTPUT}}
-      - mv *.pkl {{.OUTPUT}}
+      - mv *.pkl pkl/
 
   schemagen-*:
     vars:
@@ -47,7 +47,6 @@ tasks:
     cmds:
       - json-schema-generator -f types/base/{{.INPUT}} -o types/schemas/{{.OUTPUT}}
 
-      
   mock-data:
     cmds:
       - mkdir -p types/base

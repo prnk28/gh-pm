@@ -1,4 +1,4 @@
-package launch
+package pulls
 
 import (
 	"github.com/spf13/cobra"
@@ -6,8 +6,11 @@ import (
 
 func Command() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "launch",
-		Short: "Manage launches",
+		Use: "pulls",
+		Aliases: []string{
+			"pr",
+		},
+		Short: "Manage reviews",
 		Run: func(cmd *cobra.Command, args []string) {
 		},
 	}

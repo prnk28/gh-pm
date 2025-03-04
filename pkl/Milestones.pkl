@@ -1,0 +1,40 @@
+///
+///
+/// This module was generated from JSON Schema from
+/// <file:///Users/prad/Developer/github.com/prnk28/gh-pm/types/schemas/milestones.json>.
+///
+/// WARN: The root schema describes open-ended properties, but this is not possible to describe at the
+/// module level.
+module Milestones
+
+data: Data
+
+class Data {
+  repository: Repository
+}
+
+class Repository {
+  milestones: Milestones
+}
+
+class Milestones {
+  nodes: Listing<Node>(!isEmpty, isDistinct)
+}
+
+class Node {
+  title: String(!isEmpty)
+
+  state: String(!isEmpty)
+
+  dueOn: String(!isEmpty)
+
+  progressPercentage: Number
+
+  number: Number
+
+  issues: Issues?
+}
+
+class Issues {
+  totalCount: Number
+}

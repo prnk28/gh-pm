@@ -1,10 +1,10 @@
-package gh
+package exc
 
 import (
 	"github.com/cli/go-gh"
 )
 
-func Exec(args ...string) (string, error) {
+func Gh(args ...string) (string, error) {
 	out, _, err := gh.Exec(args...)
 	if err != nil {
 		return "", err

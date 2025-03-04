@@ -1,4 +1,4 @@
-package review
+package release
 
 import (
 	"github.com/spf13/cobra"
@@ -6,11 +6,8 @@ import (
 
 func Command() *cobra.Command {
 	cmd := &cobra.Command{
-		Use: "review",
-		Aliases: []string{
-			"pr",
-		},
-		Short: "Manage reviews",
+		Use:   "release",
+		Short: "Manage releases",
 		Run: func(cmd *cobra.Command, args []string) {
 		},
 	}

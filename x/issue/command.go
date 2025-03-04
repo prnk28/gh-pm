@@ -1,4 +1,4 @@
-package todo
+package issue
 
 import (
 	"github.com/spf13/cobra"
@@ -6,8 +6,8 @@ import (
 
 func Command() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "todo",
-		Short: "Manage todos",
+		Use:   "issue",
+		Short: "Manage issues",
 		Run: func(cmd *cobra.Command, args []string) {
 		},
 	}

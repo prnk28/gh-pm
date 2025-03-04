@@ -37,3 +37,13 @@ func jsonMarshal(v interface{}) (string, error) {
 	}
 	return string(b), nil
 }
+
+func DepStatus() map[string]bool {
+	installStatus := map[string]bool{
+		"gh":  hasCmdInstalled("gh"),
+		"fzf": hasCmdInstalled("fzf"),
+		"jq":  hasCmdInstalled("jq"),
+		"gum": hasCmdInstalled("gum"),
+	}
+	return installStatus
+}
