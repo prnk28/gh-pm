@@ -6,6 +6,7 @@ vars:
 
 tasks:
   build:
+    desc: Build the gh-pm binary
     aliases: [b]
     cmds:
       - go build -o gh-pm main.go
@@ -15,7 +16,9 @@ tasks:
       - gh extension install . --force
       - task: logi-"Install completed"
     silent: true
+
   generate:
+    desc: Generate the gh-pm binary
     aliases: [g]
     cmds:
       - defer: rm -rf types
@@ -27,7 +30,9 @@ tasks:
       - task: mock:jsonpkl-projects.json
       - task: mock:jsonpkl-releases.json
       - task: mock:jsonpkl-user.json
+
   test:
+    desc: Run the tests
     aliases: [t]
     cmds:
       - go test -v ./...

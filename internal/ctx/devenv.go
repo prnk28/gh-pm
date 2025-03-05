@@ -15,8 +15,8 @@ func WorkingDir() (string, error) {
 	return os.Getwd()
 }
 
-// GetCurrentBranch returns the name of the current git branch in the working directory
-func GetCurrentBranch() (string, error) {
+// CurrentBranch returns the name of the current git branch in the working directory
+func CurrentBranch() (string, error) {
 	// Create command to run "git branch"
 	cmd := exec.Command("git", "branch", "--show-current")
 

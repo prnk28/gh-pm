@@ -63,7 +63,7 @@ func Get(cmd *cobra.Command) (*Context, error) {
 	if err != nil {
 		return nil, err
 	}
-	wrkBranch, err := GetCurrentBranch()
+	wrkBranch, err := CurrentBranch()
 	branch := ""
 	if err == nil {
 		branch = wrkBranch

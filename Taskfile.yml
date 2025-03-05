@@ -3,10 +3,6 @@
 version: '3'
 silent: true
 
-vars:
-  ROOT_DIR:
-    sh: git rev-parse --show-toplevel
-
 includes:
   dev: 
     taskfile: .taskfiles/Dev.yml
@@ -16,5 +12,5 @@ includes:
 tasks:
   default:
     cmds:
-      - task -l
+      - task --list-all
     silent: true
