@@ -38,7 +38,7 @@ function checkTemplates() {
 
   # Download the required templates
   downloadRemoteTemplate Taskfile.bun.yml
-  downloadRemoteTemplate Taskfile.conv.yml
+  downloadRemoteTemplate Taskfile.pkl.yml
   downloadRemoteTemplate Taskfile.docker.yml
   downloadRemoteTemplate Taskfile.go.yml
   downloadRemoteTemplate Taskfile.log.yml
