@@ -12,5 +12,5 @@ includes:
 tasks:
   default:
     cmds:
-      - task --list-all
+      - task -l
     silent: true

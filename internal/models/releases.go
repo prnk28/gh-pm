@@ -2,9 +2,7 @@
 
 package models
 
-type ReleasesListJson []ReleasesJson
-
-type ReleasesJson struct {
+type ReleasesJson []struct {
 	// IsDraft corresponds to the JSON schema field "isDraft".
 	IsDraft bool `json:"isDraft" yaml:"isDraft" mapstructure:"isDraft"`
 

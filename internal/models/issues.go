@@ -2,14 +2,10 @@
 
 package models
 
-import (
-	"encoding/json"
-	"fmt"
-)
+import "encoding/json"
+import "fmt"
 
-type IssuesListJson []IssuesJson
-
-type IssuesJson struct {
+type IssuesJson []struct {
 	// Assignees corresponds to the JSON schema field "assignees".
 	Assignees []interface{} `json:"assignees" yaml:"assignees" mapstructure:"assignees"`
 

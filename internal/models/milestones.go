@@ -2,9 +2,7 @@
 
 package models
 
-type MilestonesListJson []MilestonesJson
-
-type MilestonesJson struct {
+type MilestonesJson []struct {
 	// Id corresponds to the JSON schema field "id".
 	Id string `json:"id" yaml:"id" mapstructure:"id"`
 
