@@ -4,14 +4,20 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/prnk28/gh-pm/internal/ctx"
 	"github.com/prnk28/gh-pm/x/project/views"
 	"github.com/spf13/cobra"
 )
 
 // CreateAction handles the 'project create' command
 func CreateAction(cmd *cobra.Command, args []string) {
+	c, err := ctx.Get(cmd)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
 	// Create and run the form
-	form, err := views.NewProjectForm()
+	form, err := views.NewProjectForm(c)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(1)

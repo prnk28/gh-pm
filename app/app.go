@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/prnk28/gh-pm/internal/ghcli"
+	"github.com/prnk28/gh-pm/internal/ctx"
 	"github.com/spf13/cobra"
 )
 
@@ -17,12 +17,15 @@ func RootCmd() *cobra.Command {
 		Short: "gh pm [command]",
 		Long:  "A Github CLI Extension for managing projects",
 		Run: func(cmd *cobra.Command, args []string) {
-			out, err := ghcli.Whoami()
+			c, err := ctx.Get(cmd)
 			if err != nil {
 				cmd.PrintErr(err)
 				return
 			}
-			cmd.Println(out)
+			for _, org := range c.Orgs {
+				cmd.Println(org)
+			}
+			cmd.Println(c.String())
 			cmd.Help()
 		},
 	}

@@ -1,4 +1,4 @@
-package ghcli
+package ctx
 
 import (
 	"github.com/cli/go-gh"
@@ -6,8 +6,8 @@ import (
 	graphql "github.com/cli/shurcooL-graphql"
 )
 
-// ListOrgs returns a list of organization names the authenticated user is a member of
-func ListOrgs() ([]string, error) {
+// listOrgs returns a list of organization names the authenticated user is a member of
+func listOrgs() ([]string, error) {
 	// Create a GraphQL client
 	client, err := gh.GQLClient(nil)
 	if err != nil {

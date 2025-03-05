@@ -7,21 +7,21 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/prnk28/gh-pm/internal/ghcli"
+	"github.com/prnk28/gh-pm/internal/ghc"
 	"github.com/prnk28/gh-pm/internal/models"
 	"github.com/prnk28/gh-pm/internal/tui"
 )
 
 // Message types for the projects list view
 type projectsMsg struct {
-	projects []ghcli.ProjectResult
+	projects []models.ProjectsJson
 	err      error
 }
 
 // ProjectItem represents a project in the list
 type ProjectItem struct {
 	OrgLogin string
-	Project  models.Project
+	Project  models.ProjectsJson
 }
 
 // Title returns the title for the list item
@@ -86,7 +86,7 @@ func (m ProjectsListViewModel) Init() tea.Cmd {
 // fetchProjects fetches projects from the GitHub API
 func (m ProjectsListViewModel) fetchProjects() tea.Msg {
 	return func() tea.Msg {
-		projects, err := ghcli.GetAllUserProjects()
+		projects, err := ghc.GetProjects()
 		return projectsMsg{
 			projects: projects,
 			err:      err,
@@ -121,8 +121,8 @@ func (m ProjectsListViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		items := make([]list.Item, 0, len(msg.projects))
 		for _, p := range msg.projects {
 			items = append(items, ProjectItem{
-				OrgLogin: p.OrgLogin,
-				Project:  p.Project,
+				OrgLogin: p.Owner.Login,
+				Project:  p,
 			})
 		}
 

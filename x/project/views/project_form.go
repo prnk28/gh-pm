@@ -6,7 +6,7 @@ import (
 
 	"github.com/charmbracelet/huh"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/prnk28/gh-pm/internal/ghcli"
+	"github.com/prnk28/gh-pm/internal/ctx"
 	"github.com/prnk28/gh-pm/internal/tui"
 )
 
@@ -19,14 +19,11 @@ type ProjectForm struct {
 }
 
 // NewProjectForm creates a new project form using Huh
-func NewProjectForm() (*ProjectForm, error) {
+func NewProjectForm(ctx *ctx.Context) (*ProjectForm, error) {
 	form := &ProjectForm{}
 
 	// In your form creation code
-	orgs, err := ghcli.ListOrgs()
-	if err != nil {
-		// Handle error
-	}
+	orgs := ctx.Orgs
 
 	// Create options for the organization select field
 	orgOptions := make([]huh.Option[string], 0, len(orgs)+1)
@@ -82,11 +79,10 @@ func NewProjectForm() (*ProjectForm, error) {
 	).WithTheme(customTheme())
 
 	// Run the form
-	err = f.Run()
+	err := f.Run()
 	if err != nil {
 		return nil, err
 	}
-
 	return form, nil
 }
 

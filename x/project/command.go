@@ -18,16 +18,6 @@ func Command() *cobra.Command {
 			Short: "List all projects",
 			Run:   actions.ListAction,
 		},
-		{
-			Use:   "delete",
-			Short: "Delete a project",
-			Run:   actions.DeleteAction,
-		},
-		{
-			Use:   "view",
-			Short: "View a project",
-			Run:   actions.ViewAction,
-		},
 	}
 
 	// Create the root command

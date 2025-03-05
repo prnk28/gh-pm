@@ -2,22 +2,19 @@
 
 version: '3'
 silent: true
+
+vars:
+  ROOT_DIR:
+    sh: git rev-parse --show-toplevel
+
 includes:
-  build: 
-    taskfile: .taskfiles/Build.yml
-    flatten: true
-    dir: .
-  generate:
-    taskfile: .taskfiles/Generate.yml
-    flatten: true
-    dir: .
-  test: 
-    taskfile: .taskfiles/Test.yml
+  dev: 
+    taskfile: .taskfiles/Dev.yml
     flatten: true
     dir: .
 
 tasks:
   default:
     cmds:
-      - task: build
+      - task -l
     silent: true
