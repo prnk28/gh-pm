@@ -1,25 +1,25 @@
 version: '3'
 
 tasks:
-  logi-*:
+  info-*:
     vars:
       TEXT: '{{index .MATCH 0}}'
     cmds:
       - gum log -l info {{.TEXT}}
 
-  logw-*:
+  warn-*:
     vars:
       TEXT: '{{index .MATCH 0}}'
     cmds:
       - gum log -l warn {{.TEXT}}
 
-  loge-*:
+  error-*:
     vars:
       TEXT: '{{index .MATCH 0}}'
     cmds:
       - gum log -l error {{.TEXT}}
 
-  logd-*:
+  debug-*:
     vars:
       TEXT: '{{index .MATCH 0}}'
     cmds:

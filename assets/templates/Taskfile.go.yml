@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  install-*:
+    vars:
+      TEXT: '{{index .MATCH 0}}'
+    cmds:
+      - gum log -l info {{.TEXT}}
+
+  build:
+    vars:
+      TEXT: '{{index .MATCH 0}}'
+    cmds:
+      - gum log -l info {{.TEXT}}
+
+  run:
+    vars:
+      TEXT: '{{index .MATCH 0}}'
+    cmds:
+      - gum log -l warn {{.TEXT}}
+
+  mod-download:
+    vars:
+      TEXT: '{{index .MATCH 0}}'
+    cmds:
+      - gum log -l error {{.TEXT}}
+
+  mod-tidy:
+    vars:
+      TEXT: '{{index .MATCH 0}}'
+    cmds:
+      - gum log -l debug {{.TEXT}}
