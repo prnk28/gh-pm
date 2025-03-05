@@ -5,24 +5,11 @@ import (
 
 	"github.com/cli/go-gh"
 	graphql "github.com/cli/shurcooL-graphql"
+	"github.com/your-username/gh-pm/internal/models"
 )
 
-// ProjectCard represents a card in a project
-type ProjectCard struct {
-	ID     string
-	Title  string
-	Status string
-	URL    string
-}
-
-// ProjectColumn represents a column in a project
-type ProjectColumn struct {
-	Name  string
-	Cards []ProjectCard
-}
-
 // GetProjectCards retrieves all cards for a given project ID
-func GetProjectCards(projectID string) ([]ProjectColumn, error) {
+func GetProjectCards(projectID string) ([]models.ProjectColumn, error) {
 	// Create a GraphQL client
 	client, err := gh.GQLClient(nil)
 	if err != nil {
@@ -113,11 +100,11 @@ func GetProjectCards(projectID string) ([]ProjectColumn, error) {
 	}
 
 	// Create a map to organize cards by status
-	cardsByStatus := make(map[string][]ProjectCard)
+	cardsByStatus := make(map[string][]models.ProjectCard)
 
 	// Process each item in the project
 	for _, item := range project.Items.Nodes {
-		var card ProjectCard
+		var card models.ProjectCard
 		card.ID = string(item.ID)
 
 		// Set default status
@@ -127,14 +114,23 @@ func GetProjectCards(projectID string) ([]ProjectColumn, error) {
 		if string(item.Content.TypeName) == "Issue" {
 			card.Title = string(item.Content.Issue.Title)
 			card.URL = string(item.Content.Issue.URL)
+			card.ContentType = "Issue"
+			
+			// We could populate a full ProjectCardIssue here if needed
+			// This would require extending the GraphQL query
 		} else if string(item.Content.TypeName) == "PullRequest" {
 			card.Title = string(item.Content.PullRequest.Title)
 			card.URL = string(item.Content.PullRequest.URL)
+			card.ContentType = "PullRequest"
+			
+			// We could populate a full ProjectCardPR here if needed
+			// This would require extending the GraphQL query
 		} else {
 			// For draft issues or other content types, get title from field values
 			for _, fieldValue := range item.FieldValues.Nodes {
 				if string(fieldValue.Title.Title) != "" {
 					card.Title = string(fieldValue.Title.Title)
+					card.ContentType = "DraftIssue"
 				}
 			}
 		}
@@ -159,7 +155,7 @@ func GetProjectCards(projectID string) ([]ProjectColumn, error) {
 	}
 
 	// Convert the map to a slice of columns
-	columns := make([]ProjectColumn, 0, len(cardsByStatus))
+	columns := make([]models.ProjectColumn, 0, len(cardsByStatus))
 
 	// Define the standard column order
 	standardColumns := []string{"To Do", "In Progress", "Done"}
@@ -167,7 +163,7 @@ func GetProjectCards(projectID string) ([]ProjectColumn, error) {
 	// First add standard columns in the preferred order
 	for _, colName := range standardColumns {
 		if cards, ok := cardsByStatus[colName]; ok {
-			columns = append(columns, ProjectColumn{
+			columns = append(columns, models.ProjectColumn{
 				Name:  colName,
 				Cards: cards,
 			})
@@ -177,7 +173,7 @@ func GetProjectCards(projectID string) ([]ProjectColumn, error) {
 
 	// Then add any remaining custom columns
 	for status, cards := range cardsByStatus {
-		columns = append(columns, ProjectColumn{
+		columns = append(columns, models.ProjectColumn{
 			Name:  status,
 			Cards: cards,
 		})
