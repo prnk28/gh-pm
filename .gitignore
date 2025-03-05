@@ -5,3 +5,4 @@ models/tmp
 models/*.json
 types/base/*.json
 .aider*
+tmp
