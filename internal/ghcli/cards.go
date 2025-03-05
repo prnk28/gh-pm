@@ -5,7 +5,7 @@ import (
 
 	"github.com/cli/go-gh"
 	graphql "github.com/cli/shurcooL-graphql"
-	"github.com/your-username/gh-pm/internal/models"
+	"github.com/prnk28/gh-pm/internal/models"
 )
 
 // GetProjectCards retrieves all cards for a given project ID
