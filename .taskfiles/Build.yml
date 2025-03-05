@@ -10,11 +10,13 @@ tasks:
     silent: true
 
   extension:remove:
+    internal: true
     cmds:
       - gh extension remove gh-pm
     silent: true
 
   extension:install:
+    internal: true
     cmds:
       - gh extension install . --force
       - echo "✓ Extension installed"
