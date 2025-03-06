@@ -1,4 +1,5 @@
-version: '3'
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
 silent: true
 vars:
   GH_EXTENSIONS: valeriobelli/gh-milestone mona-actions/gh-repo-stats
@@ -32,4 +33,3 @@ tasks:
     cmds:
       - for: { var: CARGO_PKGS }
         cmd: cargo install {{.NAME}}
-

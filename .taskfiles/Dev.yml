@@ -1,4 +1,5 @@
-version: '3'
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
 
 vars:
   ROOT_DIR:
@@ -37,7 +38,7 @@ tasks:
     cmds:
       - go test -v ./...
     silent: true
-    
+
 includes:
   log:
     taskfile: ./Util/Log.yml
